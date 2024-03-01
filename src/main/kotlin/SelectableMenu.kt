@@ -1,10 +1,5 @@
 import java.util.Scanner
 
-class MenuElement(
-    val title: String,
-    val callback: () -> Unit?
-)
-
 class SelectableMenu() {
     var title: String = ""
     var elements: List<MenuElement> = listOf()
@@ -49,20 +44,6 @@ class SelectableMenu() {
             return cmd.toInt()
         } catch (e: Exception) {
             return -1
-        }
-    }
-}
-
-class InputableMenu() {
-    fun userInputStr( field: String ): String {
-        while (true) {
-            println("Укажите ${field}:")
-            val cmd = Scanner(System.`in`).nextLine()
-            if (cmd == "") {
-                println("Ошибка: поле \"${field}\" не может быть пустым!")
-                continue
-            }
-            return cmd
         }
     }
 }
